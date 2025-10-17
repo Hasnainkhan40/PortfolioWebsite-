@@ -104,7 +104,7 @@ servicesButtons.forEach(button => {
 
 /*=============== TESTIMONIALS OF DUPLICATE CARDS ===============*/
 //Diplicate images to make the animatoin work
-const tracks = document.querySelectorAll('.testimonials__container')
+const tracks = document.querySelectorAll('.testimonials__content')
 
 tracks.forEach(track => {
     const cards = [...track.children]
@@ -117,18 +117,97 @@ tracks.forEach(track => {
 
 
 /*=============== COPY EMAIL IN CONTACT ===============*/
+const copyBtn = document.getElementById('contact-btn'),
+      copyEmail = document.getElementById('contact-email').textContent
 
+copyBtn.addEventListener('click', () => {
+    //use the clipboard API to coyp text
+    navigator.clipboard.writeText(copyEmail).then(() => {
+        copyBtn.innerHTML = 'Email copied <i class="ri-check-line"></i>'
 
+        //Restore the original text
+        setTimeout(() => {
+            copyBtn.innerHTML = 'copy email <i class="ri-file-copy-line"></i>'
+        }, 2000)
+        
+    })
+})
 /*=============== CURRENT YEAR OF THE FOOTER ===============*/ 
+const textYear = document.getElementById('footer-year')
+      currentYear = new Date().getFullYear()
 
+//Each year it is updated to the current year
+textYear.textContent = currentYear;
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
+const sections = document.querySelectorAll('section[id]');
 
+const scrollActive = () => {
+  const scrollY = window.scrollY; // ✅ Corrected: `window.scrollY`, not `document.window.scrollY`
+
+  sections.forEach(section => {
+    const id = section.id, // ✅ variable name fixed (was sections)
+          top = section.offsetTop - 50, 
+          height = section.offsetHeight,
+          link = document.querySelector('.nav__menu a[href*=' + id + ']'); // ✅ removed extra space at end
+
+    if (!link) return;
+
+    // ✅ Add or remove class based on current scroll position
+    link.classList.toggle('active-link', scrollY > top && scrollY <= top + height);
+  });
+};
+
+window.addEventListener('scroll', scrollActive);
 
 /*=============== CUSTOM CURSOR ===============*/
+const cursor = document.querySelector('.cursor');
+let mouseX = 0, mouseY = 0;
 
+// Smooth animation variables
+let currentX = 0, currentY = 0;
+const speed = 0.15; // lower = smoother
 
-/* Hide custom cursor on links */
+const cursorMove = () => {
+  if (!cursor) return;
+
+  // Smooth follow animation (lerp)
+  currentX += (mouseX - currentX) * speed;
+  currentY += (mouseY - currentY) * speed;
+
+  // Apply styles
+  cursor.style.left = `${currentX}px`;
+  cursor.style.top = `${currentY}px`;
+  cursor.style.transform = 'translate(-50%, -50%)';
+
+  requestAnimationFrame(cursorMove);
+};
+
+// Track mouse movement
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+// Hide cursor on links
+document.querySelectorAll('a').forEach(link => {
+  link.addEventListener('mouseenter', () => cursor.classList.add('hide-cursor'));
+  link.addEventListener('mouseleave', () => cursor.classList.remove('hide-cursor'));
+});
+
+cursorMove();
 
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 2000,
+    delay: 300,
+    // reset: true // Animation repeat
+})
+
+sr.reveal(`.home__image`)
+sr.reveal(`.home__data`, {delay: 900, origin: 'bottom'})
+sr.reveal(`.home__info`, {delay: 900, origin: 'bottom'})
+

@@ -45,6 +45,7 @@
       <!--==================== MAIN ====================-->
       <main class="main">
          <!-- CUSTOM CURSOR -->
+          <div class="cursor"></div>
          
          <!--==================== HOME ====================-->
          <section class="home section">
@@ -648,13 +649,100 @@
 
          <!--==================== CONTACT ====================-->
          <section class="contact section" id="contact">
-            
+            <div class="contact__container container grid">
+               <div class="contact__data">
+                  <h2 class="section__title">Contact Me</h2>
+                  <p class="contact__description">Tell me about your next project.</p>
+                  <button class="contact__button button" id="contact-btn">
+                     Copy email <i class="ri-file-copy-line"></i>
+                     <!--Enter the your email-->
+                     <span class="contact__email" id="contact-email">anid123@email.com</span>
+                  </button>
+               </div>
+
+               <div class="contact__content grid">
+                  <div class="contact__info grid">
+                     <div>
+                        <h3 class="contact__title">Email</h3>
+                        <address class="contact__address">Willer123@email.com</address>
+                     </div>
+
+                     <div>
+                        <h3 class="contact__title">Location</h3>
+                        <address class="contact__address">Lima, Peru</address>
+                     </div>
+                  </div>
+
+                  <div class="contact__social">
+                     <h3 class="contact__title">Social Media</h3>
+
+                     <div class="contact__links">
+                        <a href="https://www.linkedin.com/" target="_blank" class="contact__link">
+                           Linkedin
+                           <i class="ri-arrow-right-up-long-line"></i>
+                        </a>
+
+                        <a href="https://github.com/" target="_blank" class="contact__link">
+                           GitHub
+                           <i class="ri-arrow-right-up-long-line"></i>
+                        </a>
+
+                        <a href="https://dribbble.com/" target="_blank" class="contact__link">
+                           Dribbble
+                           <i class="ri-arrow-right-up-long-line"></i>
+                        </a>
+
+                        <a href="https://about.gitlab.com/" target="_blank" class="contact__link">
+                           GitLab
+                           <i class="ri-arrow-right-up-long-line"></i>
+                        </a>
+                     </div>
+                  </div>
+
+
+                  
+                  <div class="contact__write">
+                     <h3 class="contact__title">Write Me & We'll Talk</h3>
+
+                     <div class="contact__links">
+                        <a href="https://www.instagram.com/" target="_blank" class="contact__link">
+                           instagram
+                           <i class="ri-arrow-right-up-long-line"></i>
+                        </a>
+
+                        <a href="https://api.whatsapp.com/send?phone=51123456789&text=Hello, more information!
+" target="_blank" class="contact__link">
+                           WhatsApp
+                           <i class="ri-arrow-right-up-long-line"></i>
+                        </a>
+
+                        <a href="https://m.me/bedimcode" target="_blank" class="contact__link">
+                           Messenger
+                           <i class="ri-arrow-right-up-long-line"></i>
+                        </a>
+
+                        <a href="https://t.me/telegram" target="_blank" class="contact__link">
+                           Telegram
+                           <i class="ri-arrow-right-up-long-line"></i>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
          </section>
       </main>
 
       <!--==================== FOOTER ====================-->
       <footer class="footer grid">
-         
+         <div class="blob-animate"></div>
+
+         <div class="footer__copy">
+            All Rights Reserved By <span>Bedimcode</span>
+         </div>
+
+         <div class="footer__year">
+            &#169;  <span id="footer-year"></span>
+         </div>
       </footer>
       
       <!--=============== SCROLLREVEAL ===============-->
