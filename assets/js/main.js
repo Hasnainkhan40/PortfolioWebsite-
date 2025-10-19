@@ -207,7 +207,12 @@ const sr = ScrollReveal({
     // reset: true // Animation repeat
 })
 
-sr.reveal(`.home__image`)
+sr.reveal(`.home__image, .projects__container, .work__container, 
+           .testimonials__container, .contact__container`)
 sr.reveal(`.home__data`, {delay: 900, origin: 'bottom'})
-sr.reveal(`.home__info`, {delay: 900, origin: 'bottom'})
+sr.reveal(`.home__info`, {delay: 1200, origin: 'bottom'})
+sr.reveal(`.home__social, .home__cv`, {origin: 1500})
+sr.reveal(`.about__data`, {origin: 'left'})
+sr.reveal(`.about__image`, {origin: 'right'})
+sr.reveal(`.services__card`, {interval: 100})
 
